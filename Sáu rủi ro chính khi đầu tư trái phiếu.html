@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Các rủi ro chính khi đầu tư trái phiếu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#12263A; --navy2:#1F4E78; --slate:#3B4652; --paper:#F6F4EF;
+  --card:#FFFFFF; --line:#DFE3E6; --gold:#B8862E; --gold-bg:#FBF3DF;
+  --up:#A6493B; --down:#2F6F4F;
+  font-family:'Inter',sans-serif;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --paper:#0E1620; --card:#16212C; --line:#28333D; --slate:#C7CDD3; --navy:#EDEFF1; --gold-bg:#2B2415; }
+}
+:root[data-theme="dark"]{ --paper:#0E1620; --card:#16212C; --line:#28333D; --slate:#C7CDD3; --navy:#EDEFF1; --gold-bg:#2B2415; }
+*{box-sizing:border-box;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+body{margin:0;background:var(--paper);color:var(--slate);line-height:1.55;}
+h1,h2,h3{font-family:'Source Serif 4',Georgia,serif;color:var(--navy);margin:0;}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px;}
+
+/* ---- Hero ---- */
+.hero{background:linear-gradient(160deg,#EEF2F5 0%,#DDE6ED 100%);color:#0B1B2B;padding:64px 0 48px;position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+.hero .wrap{position:relative;z-index:2;}
+.eyebrow{color:#1F4E78;font-weight:600;font-size:14px;letter-spacing:.02em;margin-bottom:10px;}
+.hero h1{font-size:clamp(28px,5vw,44px);line-height:1.15;max-width:14ch;color:#0B1B2B;}
+.hero p.sub{color:#1F3B52;font-family:'Source Serif 4',serif;font-style:italic;font-size:18px;margin-top:10px;}
+.hero-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:26px;font-size:13px;color:#1F3B52;}
+.hero-meta span{border-left:2px solid var(--gold);padding-left:8px;}
+.wave{position:absolute;right:-40px;bottom:-30px;opacity:.25;width:420px;height:220px;}
+
+/* ---- Section shell ---- */
+section{padding:44px 0;border-bottom:1px solid var(--line);}
+.kicker{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.num{font-family:'Source Serif 4',serif;font-weight:600;color:var(--gold);font-size:15px;}
+h2{font-size:26px;}
+h2 .en{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:14px;color:var(--slate);opacity:.75;margin-top:2px;}
+.lede{max-width:62ch;margin-top:10px;font-size:15.5px;}
+.grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;margin-top:22px;align-items:start;}
+@media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:20px 22px;}
+.drivers{list-style:none;margin:0;padding:0;}
+.drivers li{position:relative;padding-left:18px;margin-bottom:10px;font-size:14.5px;}
+.drivers li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;background:var(--gold);border-radius:50%;}
+.cite{font-size:12px;color:var(--slate);opacity:.7;margin-top:14px;border-top:1px dashed var(--line);padding-top:8px;}
+
+/* ---- chart bits ---- */
+.chart-title{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--slate);opacity:.7;margin-bottom:10px;}
+svg text{font-family:'Inter',sans-serif;}
+.bar-label{font-size:12px;fill:var(--slate);}
+.bar-value{font-size:13px;font-weight:700;fill:var(--navy);}
+
+/* ---- Rating scale ---- */
+.scale{height:34px;border-radius:4px;background:linear-gradient(90deg,#2F6F4F 0%,#2F6F4F 46%,#B8862E 46%,#B8862E 60%,#A6493B 60%,#A6493B 100%);position:relative;margin:18px 0 10px;}
+.scale-labels{display:flex;justify-content:space-between;font-size:11.5px;color:var(--slate);}
+.grade-row{display:flex;gap:0;margin-top:6px;}
+.grade-row div{flex:1;text-align:center;font-size:11px;padding:4px 0;border-right:1px solid var(--line);}
+.grade-row div:last-child{border-right:none;}
+
+/* ---- small icon boxes for risks 2,4,5,6 ---- */
+.mini{display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:flex-start;}
+.icon{width:56px;height:56px;flex:none;color:var(--navy2);}
+.stat-row{display:flex;gap:22px;margin-top:16px;flex-wrap:wrap;}
+.stat{min-width:130px;}
+.stat b{display:block;font-family:'Source Serif 4',serif;font-size:22px;color:var(--navy);}
+.stat span{font-size:12px;color:var(--slate);opacity:.75;}
+
+/* summary table */
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:18px;}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);}
+th{color:var(--navy);font-family:'Source Serif 4',serif;font-weight:600;}
+tr:hover td{background:var(--gold-bg);}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;border:1px solid var(--line);}
+.tag.up{color:var(--up);border-color:var(--up);}
+.tag.down{color:var(--down);border-color:var(--down);}
+
+footer{padding:34px 0 60px;text-align:center;font-size:12.5px;color:var(--slate);opacity:.75;}
+footer a{color:var(--navy2);}
+
+/* nav chips */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px;}
+.chips a{font-size:12.5px;color:#0B1B2B;border:1px solid rgba(11,27,43,.3);border-radius:20px;padding:6px 12px;text-decoration:none;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">TÀI LIỆU ÔN TẬP · CHƯƠNG 3 — ĐẦU TƯ TRÁI PHIẾU</div>
+    <h1>Sáu rủi ro chính khi đầu tư trái phiếu</h1>
+    <p class="sub">Main Risks (Sources of Risk) of Investing in a Bond</p>
+    <div class="hero-meta">
+      <span>Nguồn: Slide bài giảng Chương 3, Phần III</span>
+      <span>Giảng viên: TS. Nguyễn Duy Linh</span>
+      <span>Khoa Tài chính — Trường ĐH Ngân hàng TP.HCM</span>
+    </div>
+    <nav class="chips">
+      <a href="#rr1">1. Lãi suất</a><a href="#rr2">2. Tái đầu tư</a><a href="#rr3">3. Tín dụng</a>
+      <a href="#rr4">4. Lạm phát</a><a href="#rr5">5. Thanh khoản</a><a href="#rr6">6. Tỷ giá</a>
+    </nav>
+  </div>
+  <svg class="wave" viewBox="0 0 420 220" aria-hidden="true"><polyline points="0,150 60,120 110,170 170,60 230,110 300,40 360,90 420,20" fill="none" stroke="#B8862E" stroke-width="2.5"/><circle cx="230" cy="110" r="4" fill="#B8862E"/><circle cx="300" cy="40" r="4" fill="#B8862E"/></svg>
+</header>
+
+<main class="wrap">
+
+<!-- 1. INTEREST RATE RISK -->
+<section id="rr1">
+  <div class="kicker"><span class="num">01</span></div>
+  <h2>Rủi ro lãi suất<span class="en">Interest rate risk</span></h2>
+  <p class="lede">Mức độ rủi ro của tỷ suất sinh lời phát sinh khi lãi suất thị trường thay đổi. Giá và lợi suất trái phiếu luôn <b>nghịch biến</b>: lãi suất tăng/giảm khiến trái chủ chịu lãi hoặc lỗ vốn, dù coupon và gốc được đảm bảo.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="chart-title">Giá trái phiếu 20 năm, coupon 8%, mệnh giá 1.000 USD — theo YTM</div>
+      <svg viewBox="0 0 420 200" width="100%" height="200">
+        <line x1="40" y1="170" x2="400" y2="170" stroke="#DFE3E6"/>
+        <!-- bars: max 1229.40 -> scale to 130px -->
+        <rect x="70"  y="46"  width="70" height="124" fill="#2F6F4F"/>
+        <rect x="185" y="87"  width="70" height="83"  fill="#1F4E78"/>
+        <rect x="300" y="107" width="70" height="63"  fill="#A6493B"/>
+        <text x="105" y="38" text-anchor="middle" class="bar-value">$1.229,40</text>
+        <text x="220" y="79" text-anchor="middle" class="bar-value">$829,73</text>
+        <text x="335" y="99" text-anchor="middle" class="bar-value">$602,61</text>
+        <text x="105" y="186" text-anchor="middle" class="bar-label">YTM 6%</text>
+        <text x="220" y="186" text-anchor="middle" class="bar-label">YTM 10%</text>
+        <text x="335" y="186" text-anchor="middle" class="bar-label">YTM 14%</text>
+        <text x="105" y="200" text-anchor="middle" class="bar-label" fill="#2F6F4F">+48%</text>
+        <text x="335" y="200" text-anchor="middle" class="bar-label" fill="#A6493B">−27%</text>
+      </svg>
+      <div class="cite">Nguồn: Slide "Characteristics of Interest Rate Sensitivity", Chương 3 – Phần IV.1</div>
+    </div>
+
+    <div class="card">
+      <div class="chart-title">Độ nhạy cảm giá tăng theo kỳ hạn (với tốc độ giảm dần)</div>
+      <svg viewBox="0 0 300 170" width="100%" height="170">
+        <line x1="30" y1="150" x2="280" y2="150" stroke="#DFE3E6"/>
+        <line x1="30" y1="150" x2="30" y2="10" stroke="#DFE3E6"/>
+        <polyline points="30,150 90,111 150,93 210,83 270,78" fill="none" stroke="#1F4E78" stroke-width="2.5"/>
+        <circle cx="30" cy="150" r="3.5" fill="#1F4E78"/><circle cx="90" cy="111" r="3.5" fill="#1F4E78"/>
+        <circle cx="150" cy="93" r="3.5" fill="#1F4E78"/><circle cx="210" cy="83" r="3.5" fill="#1F4E78"/><circle cx="270" cy="78" r="3.5" fill="#1F4E78"/>
+        <text x="30" y="164" text-anchor="middle" class="bar-label">5y</text>
+        <text x="90" y="164" text-anchor="middle" class="bar-label">10y</text>
+        <text x="150" y="164" text-anchor="middle" class="bar-label">20y</text>
+        <text x="210" y="164" text-anchor="middle" class="bar-label">40y</text>
+        <text x="12" y="80" class="bar-label" transform="rotate(-90 12 80)">|ΔGiá|</text>
+      </svg>
+      <p style="font-size:12.5px;margin-top:6px;">Coupon 8%, YTM 10%→22%: mức giảm giá tối đa là −35% (5 năm), −51% (10 năm), −59% (20 năm), −61% (40 năm).</p>
+      <div class="cite">Nguồn: Slide "Characteristics of Interest Rate Sensitivity", Chương 3 – Phần IV.1</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:18px;">
+    <ul class="drivers" style="columns:2;column-gap:30px;">
+      <li>Tăng khi kỳ hạn <b>dài</b> và coupon <b>thấp</b></li>
+      <li>Giảm khi kỳ hạn <b>ngắn</b> và coupon <b>cao</b></li>
+      <li>Mức tăng giá khi lợi suất giảm luôn <b>lớn hơn</b> mức giảm giá khi lợi suất tăng cùng độ lớn</li>
+      <li>Độ nhạy cảm giá cũng nghịch biến với chính mức YTM đang giao dịch</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2. REINVESTMENT RISK -->
+<section id="rr2">
+  <div class="kicker"><span class="num">02</span></div>
+  <h2>Rủi ro tái đầu tư<span class="en">Reinvestment risk</span></h2>
+  <div class="mini">
+    <svg class="icon" viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M18 28a10 10 0 0 1 17-7" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M35 17 l3 4 -5 1z" fill="currentColor"/><path d="M38 28a10 10 0 0 1-17 7" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M21 39 l-3-4 5-1z" fill="currentColor"/></svg>
+    <div>
+      <p class="lede" style="margin-top:0;">Sự không chắc chắn về mức lãi suất mà các khoản coupon — hoặc tiền gốc từ trái phiếu ngắn hạn — sẽ được tái đầu tư. Đây là một thành phần của rủi ro lãi suất, nhưng tác động <b>ngược chiều</b> với nó.</p>
+      <table>
+        <tr><th></th><th>Rủi ro lãi suất</th><th>Rủi ro tái đầu tư</th></tr>
+        <tr><td>Kỳ hạn dài hơn</td><td><span class="tag up">Tăng</span></td><td><span class="tag up">Tăng</span></td></tr>
+        <tr><td>Coupon cao hơn</td><td><span class="tag down">Giảm</span></td><td><span class="tag up">Tăng</span></td></tr>
+      </table>
+      <div class="cite">Nguồn: Slide "Reinvestment Risk", Chương 3 – Phần III.2</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. CREDIT RISK -->
+<section id="rr3">
+  <div class="kicker"><span class="num">03</span></div>
+  <h2>Rủi ro tín dụng / vỡ nợ<span class="en">Credit (default) risk</span></h2>
+  <p class="lede">Xảy ra khi tổ chức phát hành không thể hoặc không sẵn lòng trả lãi đúng hạn hoặc hoàn trả mệnh giá khi đáo hạn. Được đo lường qua xếp hạng tín nhiệm của Moody's, S&amp;P, và Fitch.</p>
+  <div class="card">
+    <div class="chart-title">Thang xếp hạng tín nhiệm</div>
+    <div class="scale"></div>
+    <div class="grade-row">
+      <div style="flex:1.15">AAA – A</div><div style="flex:1.15">BBB / Baa</div><div style="flex:1.4">BB / Ba trở xuống</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><b>Investment-grade</b><span>BBB (S&amp;P/Fitch) hoặc Baa (Moody's) trở lên</span></div>
+      <div class="stat"><b>Speculative / Junk</b><span>Thấp hơn ngưỡng trên → trái phiếu rác</span></div>
+    </div>
+    <div class="cite">Nguồn: Slide "Credit Risk", Chương 3 – Phần III.3</div>
+  </div>
+</section>
+
+<!-- 4. INFLATION RISK -->
+<section id="rr4">
+  <div class="kicker"><span class="num">04</span></div>
+  <h2>Rủi ro lạm phát<span class="en">Inflation risk</span></h2>
+  <div class="mini">
+    <svg class="icon" viewBox="0 0 56 56"><rect x="8" y="30" width="10" height="18" fill="currentColor"/><rect x="23" y="20" width="10" height="28" fill="currentColor" opacity=".6"/><rect x="38" y="8" width="10" height="40" fill="currentColor" opacity=".3"/><path d="M8 8 34 8 34 14" fill="none" stroke="currentColor" stroke-width="2"/><path d="M34 8 40 14 M34 8 28 14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    <div>
+      <p class="lede" style="margin-top:0;">Lạm phát tăng làm giảm <b>sức mua thực</b> của các khoản coupon và gốc nhận được trong tương lai; lạm phát cao thường kéo lãi suất tăng theo, bất lợi cho giá trái phiếu. <b>Trái phiếu gắn với lạm phát</b> điều chỉnh coupon và gốc theo CPI để bảo vệ nhà đầu tư.</p>
+      <div class="cite">Nguồn: Slide "Inflation Risk", Chương 3 – Phần III.4</div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. LIQUIDITY RISK -->
+<section id="rr5">
+  <div class="kicker"><span class="num">05</span></div>
+  <h2>Rủi ro thanh khoản<span class="en">Liquidity risk</span></h2>
+  <div class="mini">
+    <svg class="icon" viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M28 16v14l9 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <div>
+      <p class="lede" style="margin-top:0;">Rủi ro khó tìm được người mua khi cần bán, buộc phải bán với mức <b>chiết khấu sâu</b> so với giá trị thị trường. Trái phiếu Kho bạc — giao dịch thường xuyên, khối lượng lớn — có rủi ro thanh khoản thấp hơn nhiều so với trái phiếu ít giao dịch. Rủi ro này giảm dần khi thời gian nắm giữ dự kiến càng dài.</p>
+      <div class="cite">Nguồn: Slide "Liquidity Risk", Chương 3 – Phần III.5</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. FX RISK -->
+<section id="rr6" style="border-bottom:none;">
+  <div class="kicker"><span class="num">06</span></div>
+  <h2>Rủi ro tỷ giá hối đoái<span class="en">Exchange rate / currency risk</span></h2>
+  <div class="mini">
+    <svg class="icon" viewBox="0 0 56 56"><polyline points="6,40 16,28 24,34 34,14 46,20" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="34" cy="14" r="3" fill="currentColor"/><text x="6" y="52" font-size="9" fill="currentColor">$</text><text x="42" y="14" font-size="9" fill="currentColor">₫</text></svg>
+    <div>
+      <p class="lede" style="margin-top:0;">Phát sinh khi trái phiếu được định giá bằng một đồng tiền khác với đồng tiền "quê nhà" của nhà đầu tư — xuất phát từ sự không chắc chắn trong biến động tỷ giá. Mức độ rủi ro được đánh giá dựa trên biến động lịch sử của tỷ giá và mối tương quan giữa các cặp tiền tệ.</p>
+      <div class="cite">Nguồn: Slide "Exchange Rate Risk/Currency Risk", Chương 3 – Phần III.6</div>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:none;">
+  <h2>Bảng tổng hợp</h2>
+  <table>
+    <tr><th>#</th><th>Rủi ro</th><th>Tăng khi</th><th>Giảm khi</th></tr>
+    <tr><td>1</td><td>Lãi suất</td><td>Kỳ hạn dài, coupon thấp</td><td>Kỳ hạn ngắn, coupon cao</td></tr>
+    <tr><td>2</td><td>Tái đầu tư</td><td>Kỳ hạn dài, coupon cao</td><td>Kỳ hạn ngắn, coupon thấp</td></tr>
+    <tr><td>3</td><td>Tín dụng</td><td>Xếp hạng dưới BBB/Baa</td><td>Xếp hạng đầu tư (≥ BBB/Baa)</td></tr>
+    <tr><td>4</td><td>Lạm phát</td><td>CPI tăng nhanh, coupon cố định</td><td>Có cơ chế gắn CPI</td></tr>
+    <tr><td>5</td><td>Thanh khoản</td><td>Giao dịch thưa thớt, nắm giữ ngắn hạn</td><td>Khối lượng lớn (VD: Trái phiếu Kho bạc)</td></tr>
+    <tr><td>6</td><td>Tỷ giá</td><td>Đồng phát hành biến động mạnh</td><td>Cùng đồng tiền với nhà đầu tư</td></tr>
+  </table>
+</section>
+
+</main>
+
+<footer>
+  Biên soạn từ slide bài giảng <b>Chương 3 — Đầu tư Trái phiếu</b>, Phần III "Main Risks of Investing in a Bond", TS. Nguyễn Duy Linh — Khoa Tài chính, Trường Đại học Ngân hàng TP.HCM.
+</footer>
+
+</body>
+</html>
